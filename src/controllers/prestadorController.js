@@ -32,3 +32,21 @@ export const createPrestador = async (req, res) => {
         res.status(500).json(error)
     }
 }
+
+export const me = async (req,res) =>
+{
+    try{
+        const prestador = await prestadorService.findByUserId(req.user.userId);
+        console.log(req.user.userId);
+
+        if (!prestador) {
+        return res.status(404).json({
+            erro: "Prestador não encontrado"
+        });
+    }
+    return res.json(prestador);
+    
+    } catch(error){
+        res.statu(500).json(error)
+    }
+}

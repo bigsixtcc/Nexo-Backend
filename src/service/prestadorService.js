@@ -11,6 +11,9 @@ const prestadorService = {
         return await prisma.prestador.findUnique({
             where: {
                 userId
+            },
+            include:{
+                user: true
             }
         })
     }
