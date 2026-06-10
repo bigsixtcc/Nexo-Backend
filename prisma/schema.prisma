@@ -36,4 +36,16 @@ model Prestador {
   user          User      @relation(fields: [userId], references: [id])
 
   createdAt     DateTime  @default(now())
+  servicos Servico[]
+}
+model Servico{
+  id Int @id @default(autoincrement())
+  titulo String
+  descricao String
+  preco Float
+
+  prestadorId Int
+  prestador Prestador @relation(fields: [prestadorId], references: [id])
+
+  createdAt DateTime @default(now())
 }
