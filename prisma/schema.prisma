@@ -43,6 +43,8 @@ model Servico{
   titulo String
   descricao String
   preco Float
+  categoria String?
+  imagem String?
 
   prestadorId Int
   prestador Prestador @relation(fields: [prestadorId], references: [id])

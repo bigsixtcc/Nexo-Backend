@@ -13,7 +13,8 @@ const prestadorService = {
                 userId
             },
             include:{
-                user: true
+                user: true,
+                servicos: true
             }
         })
     }

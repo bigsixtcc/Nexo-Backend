@@ -14,6 +14,8 @@ const servicoService = {
             titulo: data.titulo,
             descricao: data.descricao,
             preco: data.preco,
+            categoria:data.categoria,
+            imagem:data.imagem,
             prestadorId: prestador.id
             }
         }) ;

@@ -2,12 +2,21 @@ import servicoService from "../service/servicoService.js"
 
 const servicoController = {
     async create(req,res){
+        console.log(req.user.userId)
         try{
-            console.log(req.user.userId);
-            const servico = await servicoService.create(req.body, req.user.userId);
-            
-            return res.status(201).json(servico);
+    const {titulo,descricao,preco,categoria,} = req.body;
+    const imagem = req.file? `/uploads/${req.file.filename}`: null;
 
+    const servico = await servicoService.create({
+      titulo,
+      descricao,
+      preco: Number(preco),
+      categoria,
+      imagem,
+      prestadorId: req.user.userId,
+    },req.user.userId);
+
+    res.status(201).json(servico);
         } catch(error){
             res.status(500).json({
                 erro: error.message
