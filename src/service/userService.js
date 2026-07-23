@@ -16,7 +16,7 @@ const userService = {
         return await prisma.user.findUnique({
             where:{id}
         })
-    }
+    },
 }
 
 export default userService;
