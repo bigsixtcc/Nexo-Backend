@@ -17,8 +17,14 @@ model User {
   nome        String
   email       String       @unique
   senha       String
-
   role        Role         @default(CLIENTE)
+
+  emailVerificado         Boolean    @default(false)
+  tokenVerificacao        String?    @unique
+  tokenVerificacaoExpira  DateTime?
+
+  tokenResetSenha         String?    @unique
+  tokenResetSenhaExpira   DateTime?
 
   prestador   Prestador?
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import router from './routers/userRouter.js';
+import router from './routers/authRouter.js';
 import prestadorRouters from './routers/prestadorRouter.js'
 import prestadorService from './service/prestadorService.js';
 import servicoRouters from './routers/servicoRouter.js';
