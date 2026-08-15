@@ -28,6 +28,7 @@ model User {
 
   prestador   Prestador?
 
+  agendamento Agendamento[]
   createdAt   DateTime     @default(now())
 }
 
@@ -55,5 +56,18 @@ model Servico{
   prestadorId Int
   prestador Prestador @relation(fields: [prestadorId], references: [id])
 
+  agendamento Agendamento[]
+  
   createdAt DateTime @default(now())
+}
+model Agendamento{
+  id Int @id @default(autoincrement())
+  servicoId Int
+  clienteId Int
+  data DateTime
+  horario String
+  status String
+
+  servico Servico @relation(fields: [servicoId], references: [id])
+  cliente User @relation(fields: [clienteId], references: [id])
 }

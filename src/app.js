@@ -5,6 +5,7 @@ import prestadorService from './service/prestadorService.js';
 import servicoRouters from './routers/servicoRouter.js';
 import clienteRouter from './routers/clienteRouter.js';
 import emailRouter from './routers/emailRouter.js';
+import agendamentoRouter from './routers/agendamentoRouter.js';
 import path from "path";
 import cors from "cors";
 const app = express();
@@ -17,5 +18,6 @@ app.use("/prestador", prestadorRouters);
 app.use("/cliente", clienteRouter);
 app.use("/servico", servicoRouters);
 app.use("/email", emailRouter);
+app.use("/agendamento",agendamentoRouter);
 
 export default app;

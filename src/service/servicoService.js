@@ -19,6 +19,11 @@ const servicoService = {
             prestadorId: prestador.id
             }
         }) ;
+    },
+    async findById(data, servicoId){
+        return await prisma.servico.findUnique({
+            where:{servicoId}
+        }) 
     }
 }
 
